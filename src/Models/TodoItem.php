@@ -4,25 +4,27 @@ namespace Todo;
 
 class TodoItem extends Model
 {
-    const TABLENAME = 'todos'; // This is used by the abstract model, don't touch
+    const TABLENAME = 'todos'; 
 
-    // public static function createTodo($title)
-    // {
-    //     // TODO: Implement me!
-    //     // Create a new todo
-    // }
+    public static function createTodo($title)
+     {
+        // TODO: Implement me!
+        // Create a new todo
+     }
 
-    // // public static function updateTodo($todoId, $title, $completed = null)
-    // // {
-    // //     // TODO: Implement me!
-    // //     // Update a specific todo
-    // // }
+    public static function updateTodo($todoId, $title, $completed = null)
+     {
+        // TODO: Implement me!
+        // Update a specific todo
+     }
 
-    // public static function deleteTodo($todoId)
-    // {
-    //     // TODO: Implement me!
-    //     // Delete a specific todo
-    // }
+    public static function deleteTodo($todoId)
+    {
+        $query = "DELETE FROM todos WHERE id = $todoId";
+        self::$db->query($query);
+        $results = self::$db->execute();
+        return $results;
+    }
     
     // (Optional bonus methods below)
     // public static function toggleTodos($completed)

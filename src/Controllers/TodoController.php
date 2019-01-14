@@ -5,6 +5,7 @@ use Todo\Database;
 use Todo\TodoItem;
 
 class TodoController extends Controller {
+
     
     public function get()
     {
@@ -39,15 +40,29 @@ class TodoController extends Controller {
 
     public function delete($urlParams)
     {
-      // TODO: Implement me!
+
+      $todoId = $urlParams['id'];
+
+      $result = TodoItem::deleteTodo($todoId);
+
+      if($result) {
+        $this->redirect('/');
+      }
+
     }
+
+
 
     /**
      * OPTIONAL Bonus round!
      * 
      * The two methods below are optional, feel free to try and complete them
      * if you're aiming for a higher grade.
+     * 
      */
+
+    /*
+     
     public function toggle()
     {
       // (OPTIONAL) TODO: This action should toggle all todos to completed, or not completed.
@@ -58,4 +73,8 @@ class TodoController extends Controller {
       // (OPTIONAL) TODO: This action should remove all completed todos from the table.
     }
 
+    */
+    
+
+  
 }
