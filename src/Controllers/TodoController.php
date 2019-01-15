@@ -30,11 +30,10 @@ class TodoController extends Controller {
         $completed = isset($body['status']) ? 1 : 0; // whether or not the todo has been checked or not
         $title = $body['title'];
 
-        if($completed = 1) {
-          $completed = true;
-        }
-        if($completed = 0) {
-          $completed = false;
+        if($completed == 0) {
+          $completed = "false";
+        } else {
+          $completed = "true";
         }
 
         $result = TodoItem::updateTodo($todoId, $title, $completed);
